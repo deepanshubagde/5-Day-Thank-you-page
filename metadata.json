@@ -1,0 +1,6 @@
+{
+  "name": "Mindful Manifestation - Thank You",
+  "description": "Official confirmation and WhatsApp community access for the 5-Day Advanced Mindful Manifestation Workshop.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

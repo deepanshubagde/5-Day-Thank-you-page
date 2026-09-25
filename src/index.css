@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: 'Cinzel', serif;
+    --font-brand: 'Outfit', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.font-heading {
+  font-family: 'Cinzel', Georgia, serif;
+}
+
+.font-brand {
+  font-family: 'Outfit', system-ui, sans-serif;
+}
+
+.font-body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+@keyframes gentle-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.animate-gentle-bounce {
+  animation: gentle-bounce 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse-gold-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.3), 0 0 35px rgba(245, 158, 11, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(245, 158, 11, 0.55), 0 0 50px rgba(245, 158, 11, 0.25);
+  }
+}
+
+.gold-glow {
+  animation: pulse-gold-glow 3s ease-in-out infinite;
+}
+
+@keyframes live-blink {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 12px rgba(239, 68, 68, 0.9), 0 0 24px rgba(220, 38, 38, 0.5);
+  }
+  50% {
+    opacity: 0.35;
+    box-shadow: 0 0 3px rgba(239, 68, 68, 0.3);
+  }
+}
+
+.animate-live-blink {
+  animation: live-blink 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
