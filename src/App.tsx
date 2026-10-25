@@ -3,10 +3,13 @@ import React, { useState } from 'react';
 export default function App() {
   const [hasClicked, setHasClicked] = useState(false);
 
+  // Official Workshop WhatsApp Group Invite Link
+  const OFFICIAL_WHATSAPP_LINK = 'https://chat.whatsapp.com/CEapoBwStrXGFCJJ8GWHxV?s=cl&p=a&mlu=0';
+
   // Dynamic WhatsApp link via URL search param (e.g. ?link=... or ?group=...)
   // Default to official workshop community invite
   const urlParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
-  const whatsappUrl = urlParams?.get('link') || urlParams?.get('group') || 'https://chat.whatsapp.com/invite';
+  const whatsappUrl = urlParams?.get('link') || urlParams?.get('group') || OFFICIAL_WHATSAPP_LINK;
 
   const handleCtaClick = () => {
     setHasClicked(true);
@@ -14,7 +17,7 @@ export default function App() {
 
   return (
     <main
-      className="relative min-h-[100dvh] w-full flex flex-col justify-between overflow-x-hidden select-none"
+      className="relative min-h-[100dvh] w-full flex flex-col overflow-x-hidden select-none"
       style={{
         background: 'linear-gradient(180deg, #D9530F 0%, #E87A18 20%, #EFA938 42%, #4FA29F 76%, #89C7CC 100%)',
       }}
@@ -28,13 +31,13 @@ export default function App() {
         aria-hidden="true"
       />
 
-      {/* Single-Column, Mobile-Optimized Container */}
-      <div className="relative z-10 w-full max-w-lg mx-auto px-3.5 sm:px-6 pt-3.5 sm:pt-6 pb-4 sm:pb-6 flex flex-col justify-between flex-grow min-h-[100dvh]">
+      {/* Single-Column, Mobile-Optimized Container with Natural Top-to-Bottom Flow */}
+      <div className="relative z-10 w-full max-w-lg mx-auto px-4 sm:px-6 pt-5 sm:pt-7 pb-4 sm:pb-6 flex flex-col items-center flex-grow min-h-[100dvh]">
         
         {/* ============================================================== */}
-        {/* 1. TOP SECTION: LIVE BADGE (Light Boundary) & WORKSHOP TITLE   */}
+        {/* 1. TOP SECTION: LIVE BADGE & WORKSHOP TITLE                    */}
         {/* ============================================================== */}
-        <header className="flex flex-col items-center text-center gap-2.5 sm:gap-3 shrink-0">
+        <header className="w-full flex flex-col items-center text-center gap-2.5 sm:gap-3 shrink-0">
           
           {/* Light-colored boundary pill capsule for LIVE */}
           <div 
@@ -54,11 +57,11 @@ export default function App() {
           </div>
 
           {/* Workshop Title Pill with translucent backdrop */}
-          <div className="w-full max-w-sm sm:max-w-md px-3.5 py-1.5 sm:py-2 rounded-2xl bg-black/25 backdrop-blur-[3px] border border-white/20 shadow-sm flex flex-col items-center justify-center">
+          <div className="w-full max-w-sm sm:max-w-md px-4 py-2 sm:py-2.5 rounded-2xl bg-black/25 backdrop-blur-[3px] border border-white/20 shadow-sm flex flex-col items-center justify-center">
             <h2 className="font-brand font-extrabold tracking-wide text-xs sm:text-sm text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)] uppercase text-center leading-tight">
               5 Days Advanced Mindful Manifestation Workshop
             </h2>
-            <p className="font-body font-semibold tracking-wide text-[10px] sm:text-xs text-amber-200 drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)] mt-0.5">
+            <p className="font-body font-semibold tracking-wide text-[11px] sm:text-xs text-amber-200 drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)] mt-0.5">
               Buddhist Secret to Abundance Life
             </p>
           </div>
@@ -66,8 +69,9 @@ export default function App() {
 
         {/* ============================================================== */}
         {/* 2. CENTRAL CONTENT BLOCK & CALL TO ACTION                      */}
+        {/* Seamlessly connected to header without awkward gaps           */}
         {/* ============================================================== */}
-        <section className="my-auto py-3 sm:py-5 flex flex-col items-center text-center">
+        <section className="w-full flex flex-col items-center text-center mt-5 sm:mt-7">
           
           {/* Headline: CONGRATULATIONS! */}
           <div className="relative inline-block px-2">
@@ -83,7 +87,7 @@ export default function App() {
           </div>
 
           {/* Subheading: Welcome to the 5-Day Advanced Mindful Manifestation Workshop */}
-          <h2 className="mt-2.5 sm:mt-3.5 font-brand font-bold text-base sm:text-xl md:text-2xl text-white max-w-xs sm:max-w-md leading-snug drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] px-1">
+          <h2 className="mt-3 sm:mt-3.5 font-brand font-bold text-base sm:text-xl md:text-2xl text-white max-w-xs sm:max-w-md leading-snug drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] px-1">
             Welcome to the 5-Day Advanced Mindful Manifestation Workshop.
           </h2>
 
@@ -95,11 +99,11 @@ export default function App() {
           {/* ============================================================== */}
           {/* 3. THE MASSIVE CALL TO ACTION BUTTON                           */}
           {/* ============================================================== */}
-          <div className="w-full mt-4 sm:mt-6 flex flex-col items-center">
+          <div className="w-full mt-5 sm:mt-7 flex flex-col items-center">
             
             {/* Animated Pointing Finger */}
             <div 
-              className="text-2xl sm:text-3xl select-none mb-1.5 sm:mb-2 animate-gentle-bounce cursor-default"
+              className="text-2xl sm:text-3xl select-none mb-2 sm:mb-2.5 animate-gentle-bounce cursor-default"
               aria-hidden="true"
             >
               👇
@@ -145,7 +149,7 @@ export default function App() {
 
             {/* Subtle confirmation feedback on click */}
             {hasClicked && (
-              <div className="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-950/30 text-[11px] sm:text-xs text-amber-950 font-medium animate-in fade-in duration-300">
+              <div className="mt-2.5 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-950/30 text-[11px] sm:text-xs text-amber-950 font-medium animate-in fade-in duration-300">
                 <span>✨ Redirecting to your community group...</span>
               </div>
             )}
@@ -154,8 +158,9 @@ export default function App() {
 
         {/* ============================================================== */}
         {/* 4. FOOTER: CENTERED COPYRIGHT                                  */}
+        {/* Anchored at bottom with mt-auto without causing middle gaps   */}
         {/* ============================================================== */}
-        <footer className="w-full flex items-center justify-center pt-2 pb-1 shrink-0 select-none">
+        <footer className="w-full flex items-center justify-center mt-auto pt-6 pb-2 shrink-0 select-none">
           <p className="text-center font-body text-[11px] sm:text-xs font-semibold tracking-wide text-slate-900/80 drop-shadow-[0_1px_1px_rgba(255,255,255,0.3)]">
             All Copyright Reserved © Monkhood
           </p>
