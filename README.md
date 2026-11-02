@@ -8,6 +8,7 @@ High-converting, mobile-first confirmation and WhatsApp community access page fo
 
 - **Mobile-First Design**: Optimized for instant loading and touch interactions on mobile devices (iOS Safari, Android Chrome, Instagram in-app browsers).
 - **Instant WhatsApp Redirection**: Preconnected domain resolution (`chat.whatsapp.com`) with direct deep linking into the official community group.
+- **Meta Pixel Tracking (ID: `1074135974768072`)**: Pre-configured with automatic `PageView` tracking on entry and `Contact` / `JoinWhatsAppClick` conversion tracking on WhatsApp CTA button click.
 - **Dynamic Link Support**: Supports optional URL query parameters (`?link=...` or `?group=...`) with seamless fallback to the official invite URL.
 - **Ultra-Fast & Lightweight**: Built with Vite 8 + React 19 + Tailwind CSS 4.
 - **Zero Config Cloudflare Pages Ready**: Contains `.npmrc`, `.nvmrc`, and `public/_redirects` for automatic, error-free CI/CD builds.

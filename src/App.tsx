@@ -1,4 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+// Declare fbq globally on window
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void;
+  }
+}
 
 export default function App() {
   const [hasClicked, setHasClicked] = useState(false);
@@ -11,8 +18,44 @@ export default function App() {
   const urlParams = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
   const whatsappUrl = urlParams?.get('link') || urlParams?.get('group') || OFFICIAL_WHATSAPP_LINK;
 
+  // Track page load conversion events in Meta Pixel (Lead & CompleteRegistration)
+  useEffect(() => {
+    try {
+      if (typeof window !== 'undefined' && window.fbq) {
+        // Fire CompleteRegistration for Meta conversion optimization
+        window.fbq('track', 'CompleteRegistration', {
+          content_name: '5 Days Advanced Mindful Manifestation Workshop',
+          status: 'success',
+        });
+        // Fire Lead for lead generation ad campaigns
+        window.fbq('track', 'Lead', {
+          content_name: '5 Days Advanced Mindful Manifestation Workshop',
+          currency: 'INR',
+        });
+      }
+    } catch {
+      // Safe fallback if blocked by client-side ad-blockers
+    }
+  }, []);
+
   const handleCtaClick = () => {
     setHasClicked(true);
+
+    // Track WhatsApp button click in Meta Pixel
+    try {
+      if (typeof window !== 'undefined' && window.fbq) {
+        window.fbq('track', 'Contact', {
+          content_name: 'WhatsApp Community Group',
+          status: 'clicked',
+        });
+        window.fbq('trackCustom', 'JoinWhatsAppClick', {
+          content_name: '5 Days Advanced Mindful Manifestation Workshop',
+          destination: 'WhatsApp Community Group',
+        });
+      }
+    } catch {
+      // Safe fallback if blocked by browser extensions
+    }
   };
 
   return (
