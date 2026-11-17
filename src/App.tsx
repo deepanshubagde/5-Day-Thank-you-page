@@ -11,7 +11,7 @@ export default function App() {
   const [hasClicked, setHasClicked] = useState(false);
 
   // Official Workshop WhatsApp Group Invite Link
-  const OFFICIAL_WHATSAPP_LINK = 'https://chat.whatsapp.com/H8gKHh52eUnDGSseCjlRS3';
+  const OFFICIAL_WHATSAPP_LINK = 'https://chat.whatsapp.com/FNiK0iIBPuHEykENiA4vRz';
 
   // Dynamic WhatsApp link via URL search param (e.g. ?link=... or ?group=...)
   // Default to official workshop community invite
